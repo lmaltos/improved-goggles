@@ -1,4 +1,5 @@
 #include <iostream>
+#include "ClaseT.h"
 
 // Logica
 template <class T>
@@ -14,6 +15,8 @@ int main() {
     std::cout << "Introduzca dos enteros: ";
     std::cin >> x >> y;
     std::cout << "maximo entre " << x << " y " << y << " es: " << maximo(x,y) << std::endl;
+    ClaseT<int> cInt(0);
+    ClaseT<std::string> dStr("Hola");
     return 0;
 }
 
