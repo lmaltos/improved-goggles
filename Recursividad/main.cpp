@@ -40,7 +40,9 @@ int fibonacciRec(int n) {
 }
 
 int fibonacciIter(int n) {
-    int ant = 1,act = 1,aux;
+    int ant = 1;
+    int act = 1;
+    int aux;
     while (n > 2) {
         aux = ant + act;
         ant = act;
