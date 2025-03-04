@@ -1,3 +1,6 @@
+/*
+    
+*/
 #include <iostream>
 #include <ctime>
 
@@ -9,6 +12,7 @@ void ordenIntercambio(int [], int);
 void burbuja(int [], int);
 void seleccion(int [], int);
 void insercion(int [], int);
+void quickSort(int [], int);
 
 int main() {
     int x[100],y[100];
@@ -43,6 +47,12 @@ int main() {
     copiarArreglo(x,y,100);
     insercion(x,100);
     cout << "Resultaod ordenamiento insercion:" << endl;
+    imprimeArreglo(x,100);
+    
+    cout << "Se llama orden quickSort" << endl;
+    copiarArreglo(x,y,100);
+    quickSort(x,100);
+    cout << "Resultaod ordenamiento quickSort:" << endl;
     imprimeArreglo(x,100);
     return 0;
 }
@@ -151,4 +161,40 @@ void insercion(int arr[], int n) {
     }
     cout << "comparaciones: " << comparaciones << endl 
         << "intercambios: " << intercambios << endl;
+}
+
+int comparaciones_qs,intercambios_qs;
+
+int particion(int arr[], int inicio, int fin) {
+    int elementoPivote = arr[inicio];
+    int j = inicio;
+    for (int i = inicio+1; i <= fin; i++) {
+        comparaciones_qs++;
+        if (arr[i] < elementoPivote) {
+            intercambios_qs++;
+            int aux = arr[i];
+            arr[i] = arr[++j];
+            arr[j] = aux;
+        }
+    }
+    intercambios_qs++;
+    arr[inicio] = arr[j];
+    arr[j] = elementoPivote;
+    return j;
+} 
+
+void quickSort(int arr[], int inicio, int fin) {
+    if (inicio < fin) {
+        int pivote = particion(arr,inicio,fin);
+        quickSort(arr,inicio,pivote-1);
+        quickSort(arr,pivote+1,fin);
+    }
+}
+
+void quickSort(int arr[], int n) {
+    comparaciones_qs = 0;
+    intercambios_qs = 0;
+    quickSort(arr,0,n-1);
+    cout << "comparaciones: " << comparaciones_qs << endl 
+        << "intercambios: " << intercambios_qs << endl;
 }
