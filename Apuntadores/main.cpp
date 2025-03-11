@@ -2,7 +2,7 @@
 
 using namespace std;
 
-int main() {
+int testPointers() {
     int a,b, *   p = nullptr;
     int c,** q;
     void *r;
@@ -69,5 +69,69 @@ int main() {
     cout << "b: " << b << endl;
     cout << "p: " << p << endl;
 
+    return 0;
+}
+
+void intercambia(int *a,int *b) {
+    int tmp = *a;
+    cout << "intercambia() &a: " << &a << " &b: " << &b << " &tmp: " << &tmp << endl;
+    cout << "Antes intercambio a: " << a << " b: " << b << endl;
+    *a = *b;
+    *b = tmp;
+    cout << "Despues intercambio a: " << a << " b: " << b << endl;
+}
+
+void intercambia(int &a,int &b) {
+    int tmp = a;
+    cout << "intercambia() &a: " << &a << " &b: " << &b << " &tmp: " << &tmp << endl;
+    cout << "Antes intercambio a: " << a << " b: " << b << endl;
+    a = b;
+    b = tmp;
+    cout << "Despues intercambio a: " << a << " b: " << b << endl;
+}
+
+int pruebaIntercambio() {
+    int a,b;
+    cout << "main() &a: " << &a << " &b: " << &b << endl;
+    cout << "Ingrese dos numeros: " << endl;
+    cin >> a >> b;
+    cout << "main(): a: " << a << " b: " << b << endl;
+    intercambia(a,b);
+    cout << "main(): a: " << a << " b: " << b << endl;
+    return 0;
+}
+
+int main() {
+    int a = 5, *p = nullptr;
+    cout << "&a " << &a << endl;
+    cout << "a " << a << endl;
+    cout << "&p " << &p << endl;
+    cout << "p " << p << endl;
+
+    p = new int;
+    cout << "p = new int;" << endl;
+    cout << "&p " << &p << endl;
+    cout << "p " << p << endl;
+    cout << "*p " << *p << endl;
+
+    *p = a;
+    cout << "*p = a;" << endl; 
+    cout << "&p " << &p << endl;
+    cout << "p " << p << endl;
+    cout << "*p " << *p << endl;
+
+    a = *p + 2;
+    cout << "a = *p + 2;" << endl;
+    cout << "&a " << &a << endl;
+    cout << "a " << a << endl;
+    cout << "&p " << &p << endl;
+    cout << "p " << p << endl;
+    cout << "*p " << *p << endl;
+
+    delete p;
+    cout << "delete p;" << endl;
+    cout << "&p " << &p << endl;
+    cout << "p " << p << endl;
+    cout << "*p " << *p << endl;
     return 0;
 }
