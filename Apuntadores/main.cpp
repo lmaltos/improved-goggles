@@ -101,7 +101,7 @@ int pruebaIntercambio() {
     return 0;
 }
 
-int main() {
+int main_old() {
     int a = 5, *p = nullptr;
     cout << "&a " << &a << endl;
     cout << "a " << a << endl;
@@ -133,5 +133,30 @@ int main() {
     cout << "&p " << &p << endl;
     cout << "p " << p << endl;
     cout << "*p " << *p << endl;
+    return 0;
+}
+
+#include "MyVector.h"
+
+int main() {
+    MyVector<int> v;
+    MyVector<string> w;
+    for (int i = 0; i < 30; i++) {
+        v.push_back(rand()%100);
+    }
+    for (int i = 0; i < 30; i++) {
+        cout << v.get(i) << " ";
+    }
+    cout << endl;
+    w.push_back("Hola");
+    w.push_back("Mundo");
+    w.push_back("de");
+    w.push_back("estructuras");
+    w.push_back("dinamicas");
+    w.push_back("en");
+    w.push_back("C++");
+    for (int i = 0; i < 7; i++) {
+        cout << w.get(i) << " ";
+    }
     return 0;
 }
