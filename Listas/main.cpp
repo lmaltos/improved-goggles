@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int main() {
+void test_linkedlist() {
     LinkedList<int> lista;
     lista.insertar(1);
     lista.insertar(2);
@@ -18,5 +18,30 @@ int main() {
     for (int i = 0; i < 10; i++) {
         cout << lista.obtener(i) << " ";
     }
-    return 0;
+}
+
+#include "Stack2.h"
+void test_stack() {
+    Stack<int> s;
+    int i;
+    cout << "Se crea stack" << endl;
+    i = 1;
+    while (i <= 100) {
+        s.push(rand()%100);
+        cout << s.top() << " ";
+        if (i++ % 10 == 0) cout << endl;
+    }
+    cout << "Se llena stack" << endl;
+    /*
+    while (!s.isEmpty()) {
+        cout << s.top() << " ";
+        if (i++ % 10 == 0) cout << endl;
+        s.pop();
+    }
+    cout << "Se vacia stack" << endl;
+    */
+}
+
+int main() {
+    test_stack();
 }
