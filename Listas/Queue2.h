@@ -1,15 +1,16 @@
 #pragma once
 #include "Node.h"
 
+template <class D>
 class Queue {
   private:
-    node<int> *tail;
+    node<D> *tail;
   public:
     Queue();
     ~Queue();
-    void push(int);
+    void push(D);
     void pop();
-    int front();
+    D front();
     bool isEmpty();
     bool isFull();
 };

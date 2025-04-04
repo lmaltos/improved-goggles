@@ -44,7 +44,7 @@ void test_stack() {
 
 #include "Queue2.h"
 void test_queue() {
-    Queue q;
+    Queue<int> q;
     int i = 0;
     while (i++ < 10) {
         q.pop();

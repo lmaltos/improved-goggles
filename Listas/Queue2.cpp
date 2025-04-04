@@ -2,18 +2,21 @@
 #include <iostream>
 
 using namespace std;
-Queue::Queue(){
+template <class D>
+Queue<D>::Queue(){
     tail = nullptr;
 }
 
-Queue::~Queue(){
+template <class D>
+Queue<D>::~Queue(){
     while (!isEmpty()) {
         pop();
     }
 }
 
-void Queue::push(int valor){
-    node<int> *n = new node<int>(valor);
+template <class D>
+void Queue<D>::push(D valor){
+    node<D> *n = new node<D>(valor);
     cout << "new node " << n << " : " << valor << endl;
     if (isEmpty()) {
         n->setNext(n);
@@ -25,11 +28,12 @@ void Queue::push(int valor){
     tail = n;
 }
 
-void Queue::pop(){
+template <class D>
+void Queue<D>::pop(){
     if (isEmpty()) {
         return;
     }
-    node<int> *first = tail->getNext();
+    node<D> *first = tail->getNext();
     cout << "del node " << first << " : " << first->getData() << endl;
     if (first != tail) {
         tail->setNext(first->getNext());
@@ -41,14 +45,17 @@ void Queue::pop(){
     delete first;
 }
 
-int Queue::front(){
+template <class D>
+D Queue<D>::front(){
     return tail->getNext()->getData();
 }
 
-bool Queue::isEmpty(){
+template <class D>
+bool Queue<D>::isEmpty(){
     return tail == nullptr;
 }
 
-bool Queue::isFull(){
+template <class D>
+bool Queue<D>::isFull(){
     return false;
 }
