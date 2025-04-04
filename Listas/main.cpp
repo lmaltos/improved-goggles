@@ -42,6 +42,26 @@ void test_stack() {
     */
 }
 
+#include "Queue2.h"
+void test_queue() {
+    Queue q;
+    int i = 0;
+    while (i++ < 10) {
+        q.pop();
+        q.push(rand()%100);
+        q.push(rand()%100);
+        cout << "front: " << q.front() << endl;
+    }
+    /*
+    cout << "Vacia queue" << endl;
+    while (!q.isEmpty()) {
+        cout << "front: " << q.front() << endl;
+        q.pop();
+    }
+    */
+}
+
+
 int main() {
-    test_stack();
+    test_queue();
 }
