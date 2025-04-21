@@ -18,7 +18,7 @@ NodeT *NodeT::getLeft(){
 }
 
 NodeT *NodeT::getRight(){
-    return left;
+    return right;
 }
 
 void NodeT::setData(int valor){
