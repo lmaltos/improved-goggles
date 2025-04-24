@@ -40,14 +40,24 @@ void test_BST() {
 #include "AVL.h"
 
 void Test_AVL() {
-    AVL arbol;
+    AVL arbolAVL;
+    BST arbolBST;
+    int a;
     for (int i = 1; i < 50; i++) {
-        arbol.add(i);
+        a = rand()%100;
+        arbolAVL.add(a);
+        arbolBST.add(a);
         if (i % 10 == 0) {
-            arbol.preorder();
+            cout << "BST ";
+            arbolBST.preorder();
+            cout << "AVL ";
+            arbolAVL.preorder();
         }
     }
-    arbol.preorder();
+    cout << "BST ";
+    arbolBST.preorder();
+    cout << "AVL ";
+    arbolAVL.preorder();
 }
 
 int main() {

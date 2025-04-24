@@ -36,18 +36,18 @@ void BST::add(int valor){
     }
     NodeT *p = root, *q = nullptr;
     while (p != nullptr){
-        if (q != nullptr) cout << " -> ";
+        //if (q != nullptr) cout << " -> ";
         q = p;
-        cout << p->getData();
+        //cout << p->getData();
         p = p->getData() > valor ? p->getLeft() : p->getRight();
     }
     p = new NodeT(valor);
     if (q == nullptr) {
         root = p;
-        cout << "nodo root " << endl;
+        //cout << "nodo root " << endl;
     }
     else {
-        cout << "hijo del nodo " << q << " : " << q->getData() << endl;
+        //cout << "hijo del nodo " << q << " : " << q->getData() << endl;
         if (q->getData() > valor) {
             q->setLeft(p);
         }
@@ -55,7 +55,7 @@ void BST::add(int valor){
             q->setRight(p);
         }
     }
-    cout << " nuevo nodo " << p << " : " << valor << endl;
+    //cout << " nuevo nodo " << p << " : " << valor << endl;
         
 }
 

@@ -32,12 +32,33 @@ void AVL::add(int valor) {
     if (B != nullptr) {
         // nuestro arbol esta desbalanceado
         if (B->getData() > valor) {
-
+            NodeT *A = B->getLeft();
+            if (A->getData() > valor) {
+                // RSD
+                B->setLeft(A->getRight());
+                A->setRight(B);
+                changeParent(B,A);
+            }
+            else {
+                // RDD
+                NodeT *C = A->getRight();
+                A->setRight(C->getLeft());
+                B->setLeft(C->getRight());
+                C->setLeft(A);
+                C->setRight(B);
+                changeParent(B,C);
+            }
         }
         else {
             NodeT *A = B->getRight();
             if (A->getData() > valor) {
-
+                // RDI
+                NodeT *C = A->getLeft();
+                B->setRight(C->getLeft());
+                A->setLeft(C->getRight());
+                C->setLeft(B);
+                C->setRight(A);
+                changeParent(B,C);
             }
             else {
                 // RSI
