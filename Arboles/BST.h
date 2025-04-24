@@ -2,7 +2,7 @@
 #include "NodeT.h"
 
 class BST {
-  private:
+  protected:
     NodeT *root;
     void del(NodeT*);
     void preorder(NodeT*);

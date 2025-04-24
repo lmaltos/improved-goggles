@@ -2,7 +2,7 @@
 #include "BST.h"
 
 using namespace std;
-int main() {
+void test_BST() {
     BST arbol;
     int i = 20;
     while (i-- > 0) {
@@ -35,5 +35,22 @@ int main() {
         cin >> c;
         continuar = (c == 'Y' || c == 'y');
     } while (continuar);
+}
+
+#include "AVL.h"
+
+void Test_AVL() {
+    AVL arbol;
+    for (int i = 1; i < 50; i++) {
+        arbol.add(i);
+        if (i % 10 == 0) {
+            arbol.preorder();
+        }
+    }
+    arbol.preorder();
+}
+
+int main() {
+    Test_AVL();
     return 0;
 }
