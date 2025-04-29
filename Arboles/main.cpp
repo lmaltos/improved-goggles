@@ -60,7 +60,28 @@ void Test_AVL() {
     arbolAVL.preorder();
 }
 
+#include "Heap.h"
+
+bool myFuncionPrioridad(int a,int b) {
+    cout << "myFuncionPrioridad " << a << " < " << b << " ? " << (a < b) << endl;
+    return a < b;
+}
+
+void Test_Heap() {
+    Heap h(myFuncionPrioridad);
+    h.push(28);
+    h.push(21);
+    h.push(17);
+    h.push(19);
+    h.push(5);
+    h.push(8);
+    h.print();
+    cout << "Agrega 20" << endl;
+    h.push(20);
+    h.print();
+}
+
 int main() {
-    Test_AVL();
+    Test_Heap();
     return 0;
 }
