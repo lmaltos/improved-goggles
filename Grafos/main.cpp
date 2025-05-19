@@ -1,9 +1,10 @@
 #include <iostream>
 #include "GrafoMA.h"
+#include "GrafoLA.h"
 
 using namespace std;
 int main() {
-    GrafoMA<char> Grafo(5,true,false);
+    /*GrafoMA<char> Grafo(5,true,false);
 
     // cargar nodos
     Grafo.setTag(0,'A');
@@ -11,6 +12,13 @@ int main() {
     Grafo.setTag(2,'C');
     Grafo.setTag(3,'D');
     Grafo.setTag(4,'E');
+    */
+   
+    GrafoLA<char> Grafo(true,false);
+    for (char a = 'A'; a <= 'E'; a++) {
+        Grafo.addNodo(a);
+    }
+    cout << "Termina de cargar nodos" << endl;
 
     // cargar arcos
     Grafo.add('A','B');
