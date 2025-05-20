@@ -1,6 +1,7 @@
 #include <iostream>
 #include "GrafoMA.h"
 #include "GrafoLA.h"
+#include "Grafo.h"
 
 using namespace std;
 int main() {
@@ -14,7 +15,7 @@ int main() {
     Grafo.setTag(4,'E');
     */
    
-    GrafoLA<char> Grafo(true,false);
+    /*GrafoLA<char> Grafo(true,false);
     for (char a = 'A'; a <= 'E'; a++) {
         Grafo.addNodo(a);
     }
@@ -27,11 +28,23 @@ int main() {
     Grafo.add('B','D');
     Grafo.add('C','D');
     Grafo.add('D','E');
+    */
 
-    for (char a = 'A'; a <= 'E'; a++) {
+    Grafo<char> G;
+    for (char a = 'A'; a <= 'D'; a++) {
+        G.addNodo(a);
+    }
+    G.addArco('A','B');
+    G.addArco('A','C');
+    G.addArco('B','C');
+    G.addArco('D','A');
+    G.addArco('D','B');
+    G.addArco('D','C');
+
+    for (char a = 'A'; a <= 'D'; a++) {
         cout << a << ": ";
-        for (char b = 'A'; b <= 'E'; b++) {
-            if (a != b && Grafo.isAdyacent(a,b)) {
+        for (char b = 'A'; b <= 'D'; b++) {
+            if (a != b && G.isAdyacent(a,b)) {
                 cout << b << " ";
             }
         }
