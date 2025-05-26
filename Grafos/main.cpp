@@ -4,7 +4,7 @@
 #include "Grafo.h"
 
 using namespace std;
-int main() {
+int test() {
     /*GrafoMA<char> Grafo(5,true,false);
 
     // cargar nodos
@@ -50,5 +50,35 @@ int main() {
         }
         cout << endl;
     }
+    return 0;
+}
+
+int main() {
+    GrafoLA<char> G(false,false);
+
+    cout << "Agrega nodos" << endl;
+    for (char a = 'A'; a <= 'J'; a++) {
+        G.addNodo(a);
+    }
+    
+    cout << "Agrega arcos" << endl;
+    G.add('A','B');
+    G.add('A','E');
+    G.add('A','H');
+    G.add('B','C');
+    G.add('B','E');
+    G.add('C','D');
+    G.add('C','E');
+    G.add('C','F');
+    G.add('E','G');
+    G.add('E','H');
+    G.add('F','J');
+    G.add('G','J');
+    G.add('H','J');
+    G.add('H','I');
+
+    cout << "Comienza recorido a lo ancho" << endl;
+    G.breadthFirst();
+
     return 0;
 }

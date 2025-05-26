@@ -30,6 +30,7 @@ class GrafoLA {
     void delNodo(T);//borrar Nodo
     void del(T,T);//borrar Arco
     //recorrer Grafo
+    void breadthFirst();
     bool isAdyacent(T,T);
 };
 

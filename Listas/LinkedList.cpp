@@ -12,7 +12,7 @@ LinkedList<T>::~LinkedList(){
     node<T> *p = head, *q;
     while (p != nullptr) {
         q = p->getNext();
-        cout << "delete node<T> " << p << endl;
+        //cout << "delete node<T> " << p << " " << p->getData() << endl;
         delete p;
         p = q;
     }
@@ -21,15 +21,23 @@ LinkedList<T>::~LinkedList(){
 template <class T>
 void LinkedList<T>::insertar(T data){
     node<T> *n = new node<T>(data,head);
-    cout << "new node<T> " << n << endl;
+    //cout << "new node<T> " << n << " " << n->getData() << endl;
     head = n;
     size++;
 }
 
 template <class T>
-int LinkedList<T>::buscar(T){
-    // ToDo
-    return 0;
+int LinkedList<T>::buscar(T data){
+    int pos = 0;
+    node<T> *p = head;
+    while (p != nullptr) {
+        if (p->getData() == data) {
+            return pos;
+        }
+        p = p->getNext();
+        pos++;
+    }
+    return -1;
 }
 
 template <class T>

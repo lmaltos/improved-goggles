@@ -17,7 +17,7 @@ Queue<D>::~Queue(){
 template <class D>
 void Queue<D>::push(D valor){
     node<D> *n = new node<D>(valor);
-    cout << "new node " << n << " : " << valor << endl;
+    //cout << "new node " << n << " : " << valor << endl;
     if (isEmpty()) {
         n->setNext(n);
     }
@@ -34,13 +34,13 @@ void Queue<D>::pop(){
         return;
     }
     node<D> *first = tail->getNext();
-    cout << "del node " << first << " : " << first->getData() << endl;
+    //cout << "del node " << first << " : " << first->getData() << endl;
     if (first != tail) {
         tail->setNext(first->getNext());
     }
     else {
         tail = nullptr; // se vació la fila
-        cout << "Se vació la fila" << endl;
+        //cout << "Se vacio la fila" << endl;
     }
     delete first;
 }

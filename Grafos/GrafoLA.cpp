@@ -181,3 +181,38 @@ bool GrafoLA<T>::isAdyacent(T tagO,T tagD) {
     }
     return false; // no existe el nodo origen
 }
+
+// Recorridos
+#include "..\Listas\LinkedList.h"
+#include "..\Listas\Queue2.h"
+
+template <class T>
+void GrafoLA<T>::breadthFirst() {
+    LinkedList<T> procesados;
+    Queue<NodoG<T>*> fila;
+    NodoG<T> *p = nodos;
+    while (p != nullptr) {
+        if (procesados.buscar(p->getData()) == -1) {
+            // nodo en  espera
+            //std::cout << "BSF: " << p->getData() << std::endl;
+            fila.push(p);
+            procesados.insertar(p->getData());
+            while (!fila.isEmpty()) {
+                NodoG<T> *q = fila.front();
+                fila.pop();
+                std::cout << q->getData() << " ";
+                NodoG<T> *r = nodos;
+                while (r != nullptr) {
+                    if (procesados.buscar(r->getData()) == -1 && q->isAdyacent(r->getData())) {
+                        //std::cout << "BSF: " << r->getData() << std::endl;
+                        fila.push(r);
+                        procesados.insertar(r->getData());
+                    }
+                    r = (NodoG<T>*)r->getNext();
+                }
+            }
+        }
+        p = (NodoG<T>*)p->getNext();
+    }
+    std::cout << std::endl;
+}
