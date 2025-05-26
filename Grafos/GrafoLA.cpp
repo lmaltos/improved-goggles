@@ -216,3 +216,38 @@ void GrafoLA<T>::breadthFirst() {
     }
     std::cout << std::endl;
 }
+
+#include "..\Listas\Stack2.h"
+template <class T>
+void GrafoLA<T>::deepthFirst() {
+    LinkedList<T> procesados;
+    Stack<NodoG<T>*> pila;
+    NodoG<T> *p = nodos;
+    while (p != nullptr) {
+        if (procesados.buscar(p->getData()) == -1) {
+            // nodo en  espera
+            //std::cout << "BSF: " << p->getData() << std::endl;
+            pila.push(p);
+            //procesados.insertar(p->getData());
+            while (!pila.isEmpty()) {
+                NodoG<T> *q = pila.top();
+                pila.pop();
+                if (procesados.buscar(q->getData()) == -1) {
+                    procesados.insertar(q->getData());
+                    std::cout << q->getData() << " ";
+                    NodoG<T> *r = nodos;
+                    while (r != nullptr) {
+                        if (procesados.buscar(r->getData()) == -1 && q->isAdyacent(r->getData())) {
+                            //std::cout << "BSF: " << r->getData() << std::endl;
+                            pila.push(r);
+                            //procesados.insertar(r->getData());
+                        }
+                        r = (NodoG<T>*)r->getNext();
+                    }
+                }
+            }
+        }
+        p = (NodoG<T>*)p->getNext();
+    }
+    std::cout << std::endl;
+}

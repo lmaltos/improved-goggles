@@ -9,7 +9,7 @@ Stack<T>::Stack(){
 
 template <class T>
 Stack<T>::~Stack(){
-    node<int> *p = pTop, *q;
+    node<T> *p = pTop, *q;
     while (p != nullptr) {
         q = p->getNext();
         cout << "del node " << p << " -> " << q << " : " << p->getData() << endl;

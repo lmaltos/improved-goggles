@@ -31,6 +31,7 @@ class GrafoLA {
     void del(T,T);//borrar Arco
     //recorrer Grafo
     void breadthFirst();
+    void deepthFirst();
     bool isAdyacent(T,T);
 };
 

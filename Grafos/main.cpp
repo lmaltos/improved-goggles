@@ -78,7 +78,7 @@ int main() {
     G.add('H','I');
 
     cout << "Comienza recorido a lo ancho" << endl;
-    G.breadthFirst();
+    G.deepthFirst();
 
     return 0;
 }
