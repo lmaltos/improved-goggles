@@ -20,10 +20,18 @@ LinkedList<T>::~LinkedList(){
 
 template <class T>
 void LinkedList<T>::insertar(T data){
-    node<T> *n = new node<T>(data,head);
-    //cout << "new node<T> " << n << " " << n->getData() << endl;
-    head = n;
-    size++;
+    node<T> *n = new node<T>(data);
+    node<T> *p = head, *q = nullptr;
+    while (p != nullptr) {
+        q = p;
+        p = p->getNext();
+    }
+    if (q != nullptr) {
+        q->setNext(n);
+    }
+    else {
+        head = n;
+    }
 }
 
 template <class T>
