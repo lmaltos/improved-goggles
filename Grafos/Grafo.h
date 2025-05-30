@@ -3,14 +3,16 @@
 template <class T>
 class Arco {
   private:
+    int costo;
     T tagOrigen;
     T tagDestino;
     Arco *nextOrigen;
     Arco *nextDestino;
   public:
-    Arco(T,T);
+    Arco(T,T,int);
     T getOrigen();
     T getDestino();
+    int getCosto();
     void setNextOrigen(Arco*);
     void setNextDestino(Arco*);
     Arco* getNextOrigen();
@@ -34,6 +36,7 @@ class NodeG {
     void addArcoOrigen(Arco<T>*);
     void addArcoDestino(Arco<T>*);
     bool isAdyacente(T);
+    int getCosto(T);
 };
 
 template <class T>
@@ -45,11 +48,13 @@ class Grafo {
     Grafo();
     ~Grafo();
     void addNodo(T); //insertar Nodo
-    void addArco(T,T);//insertar Arco
+    void addArco(T,T,int);//insertar Arco
     void delNodo(T);//borrar Nodo
     void delArco(T,T);//borrar Arco
     //recorrer Grafo
     bool isAdyacent(T,T);
+    int getCosto(T,T);
+    void Dijkstra(T);
 };
 
 #include "Grafo.cpp"

@@ -4,7 +4,7 @@
 #include "Grafo.h"
 
 using namespace std;
-int test() {
+int test_Creacion() {
     /*GrafoMA<char> Grafo(5,true,false);
 
     // cargar nodos
@@ -34,12 +34,12 @@ int test() {
     for (char a = 'A'; a <= 'D'; a++) {
         G.addNodo(a);
     }
-    G.addArco('A','B');
-    G.addArco('A','C');
-    G.addArco('B','C');
-    G.addArco('D','A');
-    G.addArco('D','B');
-    G.addArco('D','C');
+    G.addArco('A','B',30);
+    G.addArco('A','C',75);
+    G.addArco('B','C',15);
+    G.addArco('D','A',20);
+    G.addArco('D','B',70);
+    G.addArco('D','C',90);
 
     for (char a = 'A'; a <= 'D'; a++) {
         cout << a << ": ";
@@ -53,7 +53,7 @@ int test() {
     return 0;
 }
 
-int main() {
+void test_Recorridos() {
     GrafoLA<char> G(false,false);
 
     cout << "Agrega nodos" << endl;
@@ -79,6 +79,37 @@ int main() {
 
     cout << "Comienza recorido a lo ancho" << endl;
     G.deepthFirst();
+}
 
-    return 0;
+int main() {
+    Grafo<char> G;
+    cout << "Agrega nodos" << endl;
+    for (char a = 'A'; a <= 'L'; a++) {
+        G.addNodo(a);
+    }
+
+    
+    cout << "Agrega arcos" << endl;
+    G.addArco('A','B',10);
+    G.addArco('A','C',8);
+    G.addArco('A','D',15);
+    G.addArco('B','E',15);
+    G.addArco('C','G',15);
+    G.addArco('C','J',14);
+    G.addArco('D','G',15);
+    G.addArco('D','I',6);
+    G.addArco('E','J',8);
+    G.addArco('E','H',30);
+    G.addArco('F','L',15);
+    G.addArco('G','F',8);
+    G.addArco('G','I',7);
+    G.addArco('H','L',15);
+    G.addArco('I','K',10);
+    G.addArco('J','F',9);
+    G.addArco('J','H',18);
+    G.addArco('K','L',18);
+    
+    cout << "Comienza Dijkstra" << endl;
+    G.Dijkstra('A');
+
 }
