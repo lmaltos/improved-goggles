@@ -96,8 +96,8 @@ int main() {
     G.addArco('B','E',15);
     G.addArco('C','G',15);
     G.addArco('C','J',14);
-    G.addArco('D','G',15);
-    G.addArco('D','I',6);
+    G.addArco('D','G',6);
+    G.addArco('D','I',15);
     G.addArco('E','J',8);
     G.addArco('E','H',30);
     G.addArco('F','L',15);
@@ -107,7 +107,7 @@ int main() {
     G.addArco('I','K',10);
     G.addArco('J','F',9);
     G.addArco('J','H',18);
-    G.addArco('K','L',18);
+    G.addArco('K','L',10);
     
     cout << "Comienza Dijkstra" << endl;
     G.Dijkstra('A');

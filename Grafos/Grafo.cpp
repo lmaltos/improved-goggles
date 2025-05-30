@@ -113,7 +113,7 @@ void NodeG<T>::addArcoDestino(Arco<T>* arc) {
         q->setNextDestino(arc);
     }
     else {
-        listaOrigen = arc;
+        listaDestino = arc;
     }
 }
 
