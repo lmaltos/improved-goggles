@@ -1,20 +1,23 @@
 #pragma once
 #define MAX_HEAP_SIZE 100
 
+template <class T>
 class Heap {
   private:
-    int a[MAX_HEAP_SIZE];
+    T a[MAX_HEAP_SIZE];
     int n;
-    bool (*prioridad)(int,int); // pointer a funcion return_type bool, parameters (int,int)
+    bool (*prioridad)(T,T); // pointer a funcion return_type bool, parameters (int,int)
     void acomoda_abajo(int);
     void acomoda_arriba(int);
   public:
     Heap();
-    Heap(bool (*)(int,int));
-    void push(int);
+    Heap(bool (*)(T,T));
+    void push(T);
     void pop();
-    int front();
+    T front();
     bool isEmpty();
     bool isFull();
     void print();
 };
+
+#include "Heap.cpp"
