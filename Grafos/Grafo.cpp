@@ -263,16 +263,20 @@ void Grafo<T>::Dijkstra(T tag) {
         actual = ColaPriorizada.front();
         ColaPriorizada.pop();
         nodoActual = actual->nodo;
+        cout << "NodoActual: " << nodoActual->getTag() << endl;
         p = nodos;
         while (p != nullptr) {
             if (nodoActual->isAdyacente(p->getTag())) {
                 int costo = nodoActual->getCosto(p->getTag()) + actual->costo;
                 int pos = lista.buscar(p);
+                cout << "  " << p->getTag() << "  Nuevo Costo: " << costo;
                 if (pos >= 0) {
                     siguiente = nodosDijkstra[pos];
+                    cout << "  Costo actual: " << siguiente->costo;
                     if (costo < siguiente->costo) {
                         siguiente->costo = costo;
                         siguiente->previo = actual;
+                        cout << "  se actualiza referencia";
                         // ToDo revisar acomodo en el heap
                     }
                 }
@@ -285,6 +289,7 @@ void Grafo<T>::Dijkstra(T tag) {
                     lista.insertar(p);
                     nodosDijkstra[idx++] = siguiente;
                 }
+                cout << endl;
             }
             p = p->getNext();
         }
@@ -295,13 +300,14 @@ void Grafo<T>::Dijkstra(T tag) {
     }
 
     // Se borran objetos
-    cout << "Se borran nodos" << endl;
+    cout << endl << "Se borran nodos" << endl;
     for (int i = 0; i < n; i++) {
         actual = nodosDijkstra[i];
         cout << actual->nodo->getTag();
+        cout << " [" << actual->costo << ",";
         if (actual->previo != nullptr)
-            cout << " <- " << actual->previo->nodo->getTag();
-        cout << ": " << actual->costo << endl;
+            cout << actual->previo->nodo->getTag();
+        cout << "]" << endl;
         delete nodosDijkstra[i];
     }
     delete[] nodosDijkstra;

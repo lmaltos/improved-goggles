@@ -109,6 +109,17 @@ int main() {
     G.addArco('J','H',18);
     G.addArco('K','L',10);
     
+    cout << "Grafo" << endl;
+    for (char a = 'A'; a <= 'L'; a++) {
+        cout << a << ": ";
+        for (char b = 'A'; b <= 'L'; b++) {
+            if (a != b && G.isAdyacent(a,b)) {
+                cout << b << " ";
+            }
+        }
+        cout << endl;
+    }
+
     cout << "Comienza Dijkstra" << endl;
     G.Dijkstra('A');
 
